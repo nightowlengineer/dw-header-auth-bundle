@@ -23,8 +23,8 @@ public class HeaderAuthConfiguration {
 
     @Override
     public String toString() {
-        return new org.apache.commons.lang3.builder.ToStringBuilder(this)
-                .append("headerName", headerName)
-                .toString();
+        return "HeaderAuthConfiguration{" +
+                "headerName='" + headerName + '\'' +
+                '}';
     }
 }
