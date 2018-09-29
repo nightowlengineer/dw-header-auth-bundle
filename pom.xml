@@ -18,6 +18,14 @@
         <tag>HEAD</tag>
     </scm>
 
+    <developers>
+        <developer>
+            <id>nightowlengineer</id>
+            <email>hello@nightowl.engineer</email>
+            <url>https://nightowl.engineer</url>
+        </developer>
+    </developers>
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
