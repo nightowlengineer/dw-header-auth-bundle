@@ -37,7 +37,7 @@ public class SampleConfiguration extends Configuration implements HeaderAuthConf
 }
 ```
 
-Add the assets bundle:
+Add the bundle:
 ```java
 public class SampleService extends Application<SampleConfiguration> {
     public static void main(String[] args) throws Exception {
