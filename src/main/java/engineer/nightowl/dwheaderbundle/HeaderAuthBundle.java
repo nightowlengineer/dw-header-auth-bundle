@@ -7,7 +7,6 @@ import engineer.nightowl.dwheaderbundle.internals.PrincipalService;
 import io.dropwizard.ConfiguredBundle;
 import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
-import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
@@ -38,8 +37,4 @@ public class HeaderAuthBundle<P extends Principal, S extends PrincipalService<P>
         environment.jersey().register(RolesAllowedDynamicFeature.class);
     }
 
-    @Override
-    public void initialize(Bootstrap<?> bootstrap) {
-
-    }
 }

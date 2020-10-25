@@ -10,7 +10,6 @@ import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -20,14 +19,14 @@ import java.util.Optional;
 public class HeaderAuthenticationFilter<P extends Principal, S extends PrincipalService<P>>
         extends AuthFilter<HeaderCredentials, P> {
 
-    private HeaderAuthenticator<P, S> authenticator;
+    private HeaderAuthenticator<P, S> headerAuthenticator;
     private HeaderAuthConfiguration configuration;
     private S principalService;
 
-    public HeaderAuthenticationFilter(final HeaderAuthenticator<P, S> authenticator,
+    public HeaderAuthenticationFilter(final HeaderAuthenticator<P, S> headerAuthenticator,
                                       final HeaderAuthConfiguration configuration, final S principalService)
     {
-        this.authenticator = authenticator;
+        this.headerAuthenticator = headerAuthenticator;
         this.configuration = configuration;
         this.principalService = principalService;
     }
@@ -35,7 +34,7 @@ public class HeaderAuthenticationFilter<P extends Principal, S extends Principal
     @Override
     public void filter(ContainerRequestContext requestContext) {
         final HeaderCredentials credentials = getCredentials(requestContext);
-        final Optional<P> authenticatedPrincipal = authenticator.authenticate(credentials);
+        final Optional<P> authenticatedPrincipal = headerAuthenticator.authenticate(credentials);
 
         if (authenticatedPrincipal.isPresent())
         {
